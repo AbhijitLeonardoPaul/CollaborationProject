@@ -39,6 +39,7 @@ public class BlogDaoImpl implements BlogDao {
 	public BlogDaoImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+
 	protected Session getSession() {
 		return sessionFactory.openSession();
 	}
@@ -50,13 +51,11 @@ public class BlogDaoImpl implements BlogDao {
 
 			blog.setPostDate(new Date(System.currentTimeMillis())); // set
 																	// current
-																	// time as
-	
+				blog.setCountLike(0);													// time as
+
 			// postDate
 			blog.setStatus("N");
 			Session session = getSession();
-
-			
 
 			session.save(blog);
 
@@ -70,32 +69,31 @@ public class BlogDaoImpl implements BlogDao {
 			return false;
 		}
 	}
-	
+
 	@Transactional
 	public boolean update(Blog blog) {
-		try{
+		try {
 			log.debug("**********Starting of update() method.");
 
 			Session session = getSession();
 			session.update(blog);
 			session.flush();
 			session.close();
-			
-			
+
 			log.debug("**********End of update() method.");
 
 			return true;
-			}catch(Exception e){
-				log.error("Error occured : " + e.getMessage());
+		} catch (Exception e) {
+			log.error("Error occured : " + e.getMessage());
 
-				e.printStackTrace();
-				return false;
-			}
+			e.printStackTrace();
+			return false;
+		}
 	}
-	
+
 	@Transactional
 	public boolean saveOrUpdate(Blog blog) {
-		try{
+		try {
 			log.debug("**********Starting of saveOrUpdate() method.");
 
 			Session session = getSession();
@@ -105,16 +103,16 @@ public class BlogDaoImpl implements BlogDao {
 			log.debug("**********End of saveOrUpdate() method.");
 
 			return true;
-			}catch(Exception e){
-				log.error("Error occured : " + e.getMessage());
-				e.printStackTrace();
-				return false;
-			}
+		} catch (Exception e) {
+			log.error("Error occured : " + e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
 	}
-	
+
 	@Transactional
 	public boolean delete(Blog blog) {
-		try{
+		try {
 			log.debug("**********Starting of delete() method.");
 
 			Session session = getSession();
@@ -124,14 +122,14 @@ public class BlogDaoImpl implements BlogDao {
 			log.debug("**********End of delete() method.");
 
 			return true;
-		}catch (Exception e){
+		} catch (Exception e) {
 			log.error("Error occured : " + e.getMessage());
 
 			e.printStackTrace();
 			return false;
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public Blog get(int id) {
@@ -140,15 +138,13 @@ public class BlogDaoImpl implements BlogDao {
 		Session session = getSession();
 
 		Query query = session.createQuery("from Blog where id = ?");
-		
-		
+
 		query.setInteger(0, id);
 		log.debug("**********End of get() method.");
 		return (Blog) query.uniqueResult();
-		
 
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Blog> list() {
@@ -158,8 +154,8 @@ public class BlogDaoImpl implements BlogDao {
 
 		Query query = session.createQuery("from Blog");
 		List<Blog> blogList = query.list();
-        session.close();
-        log.debug("**********End of list() method.");
+		session.close();
+		log.debug("**********End of list() method.");
 
 		return blogList;
 	}

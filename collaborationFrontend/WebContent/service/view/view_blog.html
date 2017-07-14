@@ -1,0 +1,61 @@
+<div id="blog-page">
+      <div class="container" style="margin-top: 2em;">
+        <div class="row">
+          <div class="col-md-8">
+            <h1>{{selectedBlog.title}}</h1>
+            <h1 class="text-uppercase" id="x-name"><a style="color: #efefef; text-decoration: none;"></a></h1>
+            
+            <h4 class="forum-top" style="margin-bottom: 1em;">Written By : {{selectedBlog.userId}} &nbsp;&nbsp;   On : {{selectedBlog.postDate | date}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 forum-head" style="padding: 2em;">
+            <div id="x-area">
+              <h3 class="entry-title"><i class="fa fa-cube" style="width: inherit;">{{selectedBlog.reason}}</i></h3>
+              <h4>{{selectedBlog.content}}</h4>
+              <p class="author text-right">
+                <strong>Best regards</strong><br>
+                <small>{{selectedBlog.userName}}</small>
+              </p>
+            </div><!-- /blog-area -->
+	        	<div class="col-md-8 like-forum" ng-hide="currentUser==''">
+	          		<div class="like-btn-pos">
+						<button type="button" class="btn-more forum-like-style"
+							ng-click="ctrl.likeBlog(selectedBlog, selectedBlog.id)">
+							<i class="fa fa-thumbs-up" aria-hidden="true">&nbsp;Like&nbsp;&nbsp;
+								<span>{{selectedBlog.countLike}}</span>
+							</i>
+						</button>
+					</div>
+		        </div>
+          </div><!-- /col-md-8 -->
+          
+          
+          
+          
+          <div class="col-md-4 box" style="transform: rotate(345deg);">
+          <div class="ribbon"><span>POPULAR</span></div>
+            <div class="widget">
+              <div class="minor-header"><h4><i class="fa fa-cubes fa-fw"></i>Other blogs</h4></div>
+              <div class="media">
+              	<h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla..
+              </div>
+              <div class="media">
+                <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla..
+              </div>
+              <div class="media">
+                <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla..
+              </div>
+              <div class="media">
+                <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla..
+                </div>
+            </div><!-- /widget -->
+          </div><!-- /col-md-4 -->
+
+        </div>
+      </div>
+    </div>

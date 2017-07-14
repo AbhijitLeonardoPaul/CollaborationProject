@@ -77,6 +77,7 @@ app.controller('UserController', [
 				function(errResponse) {
 					console.error('Error while authenticate User...');
 				});
+			
 			};
 			
 			self.logout = function() {

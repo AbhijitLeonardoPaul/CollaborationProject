@@ -1,0 +1,6 @@
+<div class="container">
+	<div ng-repeat="blog in ctrl.blogs">
+		<a href="#" data-ng-click="ctrl.getSelectedBlog(blog.id)"> Title:
+			{{blog.title}} - Written By: {{blog.userId}} </a>
+	</div>
+</div>

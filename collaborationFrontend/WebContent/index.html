@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html ng-app="myApp2">
+<html ng-app="myApp">
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,7 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#/job">Job</a></li>
-      <li><a href="#/friend">Friend</a></li>
+      <li><a href="#/friend">My Friends</a></li>
       <li><a href="#/blog">Blog</a></li>
       <li><a href="#/register">Are you a new User ?</a></li>
      <li><a href="#/login" data-toggle="modal" data-target="#login-modal">sign in</a></li>
@@ -46,19 +46,21 @@
 		
 
 	<hr> -->
-	<div ng-view></div>
+	<div   ng-view></div>
     <script src="service/resource/angular.js"></script>
     <script src="service/resource/angular-cookies.min.js"></script>
     <script src="service/resource/angular-route.min.js"></script>
 	<script src="service/js/app.js"></script>
 	<script src="service/js/UserController.js"></script>
+	<script src="service/js/FriendController.js"></script>
 	<script src="service/js/HomeController.js"></script>
 	<script src="service/js/BlogController.js"></script>
 	<script src="service/js/JobController.js"></script>
 	<script src="service/js/FriendController.js"></script>
-	
+	<script src="service/services/BlogService.js"></script>
 	<script src="service/services/JobService.js"></script>
 	<script src="service/services/UserService.js"></script>
+	<script src="service/services/FriendService.js"></script>
 	
 	
 </body>

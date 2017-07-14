@@ -2,7 +2,42 @@
 <!-- <div ng-include src="'service/view/user_actions.html'"></div> -->
 
 
-<div ng-controller="BlogController">
- <h2>    Welcome to Blog Management..</h2>
-Message : {{message}}
+
+<div ng-app="myApp">
+
+	<h2>Welcome to Blog Management..</h2>
+	<!-- <h1> Add your own Blog </h1> -->
+
+ <div id="post_blog">
+	<div class="container">
+		<div class="form-area">
+			<div class="row y-row">
+				<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+					<fieldset>
+						<legend>Post Blog</legend>
+						<div class="form-inner">
+							<form ng-submit="ctrl.submit()" class="form-horizontal" name="myForm">
+								<div class="one">
+									<input ng-model="ctrl.blog.title" type="text" required pattern=".{3,20}"
+										placeholder="Blog title">
+								</div>
+								<div class="one">
+									<textarea ng-model="ctrl.blog.content" type="text" rows="5" required pattern=".{5,2500}"
+										placeholder="Blog content..."></textarea>
+								</div>
+								
+									<input type="submit" class="btn btn-info kp-button floatright"
+										value="submit">
+									<input type="button" class="btn btn-info kp-button floatright" 
+										value="reset form" ng-click="ctrl.reset()">
+								</div>
+							</form>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 </div>

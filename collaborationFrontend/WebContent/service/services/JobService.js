@@ -49,7 +49,7 @@ app.factory('JobService', ['$http', '$q', '$rootScope',
 			getJob : function(id) {
 				console.log("-->JobService : calling 'getJob' method with id : "+id);
 				return $http
-							.get(BASE_URL+'/job/'+id)
+							.get(BASE_URL+'/getJob/'+id)
 							.then(function(response) {
 								$rootScope.selectedJob = response.data;
 								return response.data;

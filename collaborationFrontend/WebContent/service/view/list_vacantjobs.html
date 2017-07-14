@@ -1,0 +1,70 @@
+<!-- vacant-job-view -->
+<center><h2 style="color:blue;"><u> VACANCIES REMAINING </u></h2></center>
+<div class="jobs">
+	<div class="container">
+		<div class="job-all-grids">
+			<div ng-show="currentUser.role=='ADMIN'">
+				<div class="col-md-4 jobs-grid" ng-repeat="job in ctrl.jobs"
+					ng-hide="job.status=='F'">
+					<div class="job-all">
+						<div class="job-all-sub frame">
+						    
+							<h3 style="color:blue;">{{job.id}}.JOB AT : {{job.companyName}}</h3>
+							<h4 style="color:blue;">LOCATION : {{job.location}}  POSTS : {{job.posts}}</h4>
+							<div class="more">
+								
+								<a href = "#/view_job/" ng-click="ctrl.getJob(job.id)"><input	type="button" class="btn btn-info btn-more"
+									 value="VACANT JOB DETAILS"></a>
+
+
+								<input type="button" class="btn btn-info btn-more"
+									ng-hide="currentUser==''" ng-click="ctrl.applyForJob(job)" value="APPLY">
+
+								
+							</div>
+						</div>
+						<div class="p-mask">
+						    <h4>
+								<a style="color:blue;"><span><i class="fa fa-rss" aria-hidden="true"></i></span>SKILLS REQUIRED : {{job.description}}</a>
+							</h4>
+							
+							<ul style="text-align: center;">
+								<li><a style="color:blue;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<h4>POSTED ON : {{job.jobDate}}</h4></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-hide="currentUser.role=='ADMIN'">
+				<div class="col-md-4 jobs-grid" ng-repeat="job in ctrl.jobs"
+					ng-show="job.status=='V'">
+					<div class="job-all">
+						<div class="job-all-sub frame">
+							<h3 style="color:blue;">{{job.id}}.JOB AT : {{job.companyName}}</h3>
+							<h4 style="color:blue;">LOCATION : {{job.location}} POSTS : {{job.posts}}</h4>
+							<div class="more">
+								<a href = "#/view_job/" ng-click="ctrl.getJob(job.id)"><input	type="button" class="btn btn-info btn-more"
+									 value="VACANT JOB DETAILS"></a>
+
+
+								<input type="button" class="btn btn-info btn-more"
+									ng-hide="currentUser==''" ng-click="ctrl.applyForJob(job)" value="APPLY">
+
+							</div>
+						</div>
+						<div class="p-mask">
+						    <h4>
+								<a style="color:blue;"><span><i class="fa fa-rss" aria-hidden="true"></i></span>SKILLS REQUIRED : {{job.description}}</a>
+							</h4>
+							
+							<ul style="text-align: center;">
+								<li><a style="color:blue;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<h4>POSTED ON : {{job.jobDate}}</h4></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>

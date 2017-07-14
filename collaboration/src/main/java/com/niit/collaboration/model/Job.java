@@ -22,7 +22,14 @@ public class Job extends BaseDomain implements Serializable {
 	
 	private Date jobDate;
 	private String status;
+	private int noOfApplicants;
 	
+	public int getNoOfApplicants() {
+		return noOfApplicants;
+	}
+	public void setNoOfApplicants(int noOfApplicants) {
+		this.noOfApplicants = noOfApplicants;
+	}
 	public int getId() {
 		return id;
 	}

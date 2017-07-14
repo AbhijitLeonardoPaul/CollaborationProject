@@ -1,0 +1,59 @@
+
+
+
+<div id="job-page">
+      <div class="container" style="margin-top: 2em;">
+        <div class="row">
+          <div class="col-md-8">
+            <h1>JOB AT : {{selectedJob.companyName}}</</h1>
+            <h1 class="text-uppercase" id="x-name"><a style="color: #efefef; text-decoration: none;"></a></h1>
+            
+            <h4 class="job-top" style="margin-bottom: 1em;">{{selectedJob.location}} &nbsp;&nbsp;   FOR : {{selectedJob.description}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 job-head" style="padding: 2em;">
+            <div id="x-area">
+              <h3 class="entry-title"><i class="fa fa-cube" style="width: inherit;">POSTED ON : {{selectedJob.jobDate | date}}  </i></h3>
+              <h4>STATUS : {{selectedJob.status}}</h4>
+              <p class="author text-right">
+                <h3>Best regards</h3><br>
+                <h4>{{selectedJob.companyName}}</h4>
+              </p>
+            
+        <div class="more">
+								<input type="button"   
+          class="btn btn-info btn-more"
+									ng-hide="currentUser==''" ng-click="ctrl.applyForJob(job)" value="Apply Now"
+									style="background: linear-gradient(to bottom right, #6f6f6f, #60d059);">
+						
+									
+						</div>
+					
+		
+          
+          
+          <div class="col-md-4 box" style="transform: rotate(345deg);">
+          <div class="ribbon"><span>POPULAR</span></div>
+            <div class="widget">
+              <div class="minor-header"><h4><i class="fa fa-cubes fa-fw"></i>Other jobs</h4></div>
+              <div class="media">
+              	<h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla..
+              </div>
+              <div class="media">
+                <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla..
+              </div>
+              <div class="media">
+                <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla..
+              </div>
+              <div class="media">
+                <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla..
+                </div>
+          <!--   </div>/widget
+          </div>/col-md-4 -->
+
+    

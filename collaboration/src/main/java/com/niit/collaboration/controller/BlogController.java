@@ -49,10 +49,10 @@ public class BlogController {
 		
 		{
 			
-			blog.setUserId("U001");
-			blog.setCountLike(3);
-			blog.setStatus("N");
-			blog.setPostDate(new Date());
+			/*blog.setUserId("U001");*/
+			//blog.setCountLike(0);
+			//blog.setStatus("N");
+			//blog.setPostDate(new Date());
 			blogDao.save(blog);
 			log.debug("**********End of saveBlog() method.");
 			return new ResponseEntity<Blog>(blog, HttpStatus.OK);
