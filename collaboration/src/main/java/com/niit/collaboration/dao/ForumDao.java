@@ -11,7 +11,7 @@ public boolean save(Forum forum);
 	
 	public boolean update(Forum forum);
 	
-	public boolean saveOrUpdate(Forum forum);
+	/*public boolean saveOrUpdate(Forum forum);*/
 	
 	public boolean delete(Forum forum);
 	

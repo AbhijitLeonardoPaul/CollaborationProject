@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserController', [
+app.controller('UserController' ,  [
 		'$http',
 		'$cookieStore',
 		'$scope',
@@ -8,7 +8,8 @@ app.controller('UserController', [
 		'$location',
 		'$rootScope',
 		'$window',
-		function($http,$cookieStore, $scope, UserService, $location, $rootScope, $window) {
+		'$localStorage',
+		function($http,$cookieStore, $scope, UserService, $location, $rootScope, $window, $localStorage) {
 			console.log("UserController....")
 			var self = this;
 			self.user = {
@@ -69,9 +70,12 @@ app.controller('UserController', [
 						self.user.password = "";
 					} else {
 						console.log("Valid Credentials. Navigating to home page.");
+						console.log("user"+$rootScope.currentUser);
 						$http.defaults.headers.common['Authorization'] = 'Basic' + $rootScope.currentUser;
 						$cookieStore.put('currentUser', $rootScope.currentUser);
+						$localStorage.currentUser=$rootScope.currentUser;
 						$location.path('/');
+						
 					}
 				}, 
 				function(errResponse) {
@@ -82,9 +86,12 @@ app.controller('UserController', [
 			
 			self.logout = function() {
 				console.log("--> UserController : calling logout method.");
+				
 				$rootScope.currentUser = {};
+				//$rootScope.isLoggedIn="true"
 				$cookieStore.remove('currentUser');
 				UserService.logout();
+				//$rootScope.isLoggedIn="false"
 				console.log("-->UserController : User Logged out.");
 				
 				$window.location.reload();
@@ -100,7 +107,11 @@ app.controller('UserController', [
 			};
 
 			self.fetchAllUsers();
+			self.init=function() {       $rootScope.currentUser=$localStorage.currentUser;	console.log("init called");   }
+			self.init();
 
+			
+			
 			self.login = function() {
 				{
 					console.log('login validation ??????????', self.user);
@@ -117,6 +128,8 @@ app.controller('UserController', [
 				$location.path('/login');
 				self.reset();
 			};
+			
+			
 			
 		
 			self.reset = function() {

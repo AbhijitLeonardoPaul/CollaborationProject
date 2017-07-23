@@ -49,7 +49,7 @@ app.factory('BlogService', ['$http', '$q', '$rootScope',
 			getBlog : function(id) {
 				console.log("-->BlogService : calling 'getBlog' method with id : "+id);
 				return $http
-							.get(BASE_URL+'/blog/'+id)
+							.get(BASE_URL+'/getBlog/'+id)
 							.then(function(response) {
 								$rootScope.selectedBlog = response.data;
 								return response.data;

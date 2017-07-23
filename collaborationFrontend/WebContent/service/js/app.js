@@ -1,5 +1,5 @@
 
-var app = angular.module('myApp', ['ngRoute', 'ngCookies' ]);
+var app = angular.module('myApp', ['ngRoute', 'ngCookies', 'ngStorage']);
 
 app.config(function($routeProvider) {
   $routeProvider
@@ -25,9 +25,31 @@ app.config(function($routeProvider) {
   .when('/view_blog/', {
     templateUrl : 'service/view/view_blog.html',
     controller : 'BlogController as ctrl'
+    	
+  })
+  
+    	
+  .when('/forum', {
+    		    templateUrl : 'service/view/forum.html',
+    		    controller : 'ForumController as ctrl'
     
    
   })
+  
+   .when('/view_forum/', {
+    		    templateUrl : 'service/view/view_forum.html',
+    		    controller : 'ForumController as ctrl'
+    
+   
+  })
+  .when('/forums/', {
+    		    templateUrl : 'service/view/list_forums.html',
+    		    controller : 'ForumController as ctrl'
+    
+   
+  })
+  
+  
   .when('/friend', {
     templateUrl : 'service/view/friend.html',
     controller : 'FriendController as ctrl'
@@ -79,6 +101,18 @@ app.config(function($routeProvider) {
    
   })
   
+  .when('/logout', {
+    templateUrl : 'service/view/logout.html',
+    controller : 'UserController as ctrl'
+   
+  })
+  
+  .when('/myprofile', {
+    templateUrl : 'service/view/myprofile.html',
+    controller : 'UserController as ctrl'
+   
+  })
+  
   
   .otherwise({redirectTo: '/'});
 });
@@ -90,6 +124,7 @@ app.run(function($rootScope, $location, $cookieStore, $http) {		//run() block gi
 
 	$rootScope.$on('$locationChangeStart', function(event, next, current) {		//The $locationChangeStart event can be used to prevent a location change going forward.
 		console.log("--> $rootScope.$on <--");
+		
 		// redirect to login page if try to access any other page rather than the restricted pages
 		var restrictedPage = $.inArray($location.path(), [ '/', 
 		                                                   '/login', 
@@ -118,8 +153,8 @@ app.run(function($rootScope, $location, $cookieStore, $http) {		//run() block gi
 	});
 
 
-	/*// keep user logged in after page refresh...
-	
+	// keep user logged in after page refresh...
+	/*
 	  $rootScope.currentUser = $cookieStore.get('currentUser') || {}; if
 	  ($rootScope.currentUser) { $http.defaults.header.common['Authorization'] =
 	  'Basic' + $rootScope.currentUser; }*/

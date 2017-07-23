@@ -63,7 +63,7 @@ app.factory('UserService', ['$http', '$q', '$rootScope',
 			deleteUser : function(id) {
 				console.log("--> UserService : calling 'deleteUser' method.");
 				return $http
-							.delete(BASE_URL+'/user/'+id)
+							delete(BASE_URL+'/user/'+id)
 							.then(function(response) {
 								return response.data;
 							},

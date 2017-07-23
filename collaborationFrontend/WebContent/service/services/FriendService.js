@@ -7,7 +7,7 @@ app.factory('FriendService', [
 		function($http, $q, $rootScope) {
 			console.log("FriendService...");
 
-			var BASE_URL = 'http://localhost:8081/Binder'
+			var BASE_URL = 'http://localhost:9999/collaboration/'
 			return {
 				getMyFriends : function() {
 					return $http.get(BASE_URL + '/myFriends').then(

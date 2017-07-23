@@ -97,7 +97,7 @@ public class ForumDaoImpl implements ForumDao{
 			}
 	}
 	
-	@Transactional
+	/*@Transactional
 	public boolean saveOrUpdate(Forum forum) {
 		try{
 			log.debug("**********Starting of saveOrUpdate() method.");
@@ -114,7 +114,7 @@ public class ForumDaoImpl implements ForumDao{
 				e.printStackTrace();
 				return false;
 			}
-	}
+	}*/
 	
 	@Transactional
 	public boolean delete(Forum forum) {
@@ -143,7 +143,7 @@ public class ForumDaoImpl implements ForumDao{
 
 		Session session = getSession();
 
-		Query query = session.createQuery("from Blog where id = ?");
+		Query query = session.createQuery("from Forum where id = ?");
 		
 		
 		query.setInteger(0, id);
@@ -160,7 +160,7 @@ public class ForumDaoImpl implements ForumDao{
 
 		Session session = getSession();
 
-		Query query = session.createQuery("from Blog");
+		Query query = session.createQuery("from Forum");
 		List<Forum> forumList = query.list();
         session.close();
         log.debug("**********End of list() method.");

@@ -43,8 +43,14 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 					);
 			};
 			
-			self.getMyFriends = function() {
+			self.getMyFriends = function(d) {
 				console.log("--> getMyFriends");
+				var currentUser = $rootScope.currentUser
+				if (typeof currentUser == 'undefined') {
+					alert("Please Sign in to check Friend List...")
+					console.log('User not logged in , to check Friend List...');
+					$location.path('/login');
+				};
 				FriendService.getMyFriends().then(
 						function(d) {
 							self.friends = d;
@@ -65,7 +71,7 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 					);
 			};
 			
-			self.fetchAllUsers = function() {
+			self.fetchAllUsers = function(d) {
 				console.log("--> fetchAllUsers");
 				UserService.fetchAllUsers().then(
 						function() {

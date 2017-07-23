@@ -45,6 +45,21 @@ self.blogs = [];
 					});
 	};
 	
+	
+	self.getBlog = function(id) {
+		
+		console.log("-->BlogController : calling 'getBlog' method with id : "+id);
+		BlogService
+					.getBlog(id)
+					.then(function(d) {
+						self.blog = d;
+						
+						$location.path('/view_blog/');
+					},
+					function(errResponse) {
+						console.error('Error while fetching blog details...')
+					});
+	};
 	self.submit = function() {
 		{
 			console.log("-->BlogController : calling 'submit()' method.", self.blog);
