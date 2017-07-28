@@ -174,15 +174,15 @@ public void setOnline(String id) {
 	
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public User get(int id) {
+	public User get(String id) {
 		log.debug("**********Starting of get() method.");
 
 		Session session = getSession();
 
-		Query query = session.createQuery("from Blog where id = ?");
+		Query query = session.createQuery("from User where id = ?");
 		
 		
-		query.setInteger(0, id);
+		query.setString(0, id);
 		log.debug("**********End of get() method.");
 		return (User) query.uniqueResult();
 		

@@ -1,0 +1,74 @@
+<div ng-app="myApp">
+
+<div class="container">
+	<div class="row row-profile">
+		<div class="col-md-8 col-md-offset-2 profile-base">
+			<fieldset>
+				<legend>
+					<span>My Profile</span>
+					<!-- <a href="#/edit-profile" class="btn btn-info btn-edit">
+						<span>Edit Profile</span> 
+					</a> -->
+				</legend>
+				<div>
+					<form class="col-md-8 form-profile">
+						<div class="one-profile">
+							<div class="col-md-4">
+								<a class="floatleft">User ID</a>
+							</div>
+							<div class="col-md-8">
+								<label class="floatleft"> : {{userProfile.id}}</label>
+							</div>
+						</div>
+						<div class="one-profile">
+							<div class="col-md-4">
+								<a class="floatleft">User Name</a>
+							</div>
+							<div class="col-md-8">
+								<label class="floatleft"> : {{userProfile.name}}</label>
+							</div>
+						</div>
+						<!-- <div class="one-profile">
+							<div class="col-md-4">
+								<a class="floatleft">Gender</a>
+							</div>
+							<div class="col-md-8">
+								<label class="floatleft"> : {{currentUser.gender}}</label>
+							</div>
+						</div> -->
+						<div class="one-profile">
+							<div class="col-md-4">
+								<a class="floatleft">Email Id</a>
+							</div>
+							<div class="col-md-8">
+								<label class="floatleft"> : {{userProfile.email}}</label>
+							</div>
+						</div>
+						<!-- <div class="one-profile">
+							<div class="col-md-4">
+								<a class="floatleft">Phone No.</a>
+							</div>
+							<div class="col-md-8">
+								<label class="floatleft"> : {{currentUser.phone}}</label>
+							</div>
+						</div> -->
+						<div class="one-profile">
+							<div class="col-md-4">
+								<a class="floatleft">Role in this project</a>
+							</div>
+							<div class="col-md-8">
+								<label class="floatleft"> : {{userProfile.role}}</label>
+							</div>
+						</div>
+					</form>
+					<div class="col-md-4">
+						<img
+							src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+							class="profile-img">
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+</div>

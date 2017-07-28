@@ -16,7 +16,7 @@ public boolean save(User user);
 	
 	public boolean delete(User user);
 	
-	public User get(int id);
+	public User get(String id);
 	
 	public List<User> list();
 	

@@ -65,7 +65,7 @@ Logger log = Logger.getLogger(UserController.class);
 	
 
 	@PutMapping(value = "/updateUser/{id}")   // in URL we give/updateUser/1
-	public ResponseEntity<User> updateUser(@PathVariable("id") int id, @RequestBody User user) {
+	public ResponseEntity<User> updateUser(@PathVariable("id") String id, @RequestBody User user) {
 		log.debug("**********Starting of updateUser() method.");
 		//if(blogDAO.get(id) == null) 
 		
@@ -81,7 +81,7 @@ Logger log = Logger.getLogger(UserController.class);
 	
 	
 	@DeleteMapping(value = "/deleteUser/{id}")
-	public ResponseEntity<User> deleteUser(@PathVariable("id") int id) {
+	public ResponseEntity<User> deleteUser(@PathVariable("id") String id) {
 		log.debug("**********Starting of deleteUser() method.");
 		User user = userDao.get(id);
 		if(user == null) {
@@ -95,7 +95,7 @@ Logger log = Logger.getLogger(UserController.class);
 		return new ResponseEntity<User>(HttpStatus.OK);		
 	}
 	@GetMapping(value = "/getUser/{id}")
-	public ResponseEntity<User> getUser(@PathVariable("id") int id) {
+	public ResponseEntity<User> getUser(@PathVariable("id") String id) {
 		log.debug("**********Starting of getUser() method.");
 		User user = userDao.get(id);
 		if(user == null) {

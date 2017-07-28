@@ -126,7 +126,8 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 						}
 					);
 			};
-
+			
+			
 			self.fetchAllUsers();
 			self.getMyFriends();
 			

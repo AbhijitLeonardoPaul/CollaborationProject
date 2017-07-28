@@ -32,6 +32,20 @@ app.controller('ForumController', [
 			}			
 			self.forumComments = [];
 
+			
+			
+			self.getUserProfile = function(id) {
+				console.log("-->ForumController : calling getUserProfile method with id : " + id);
+				ForumService.getUserProfile(id).then(function(d) {
+					self.forum = d;
+					
+					console.log("test  "+d);
+					$location.path('/view_profile');
+				}, function(errResponse) {
+					console.error('Error while fetching Forum...');
+				});
+			};
+			
 			self.getSelectedForum = function(id) {
 				console.log("-->ForumController : calling getSelectedForum method with id : " + id);
 				ForumService.getSelectedForum(id).then(function(d) {
@@ -60,7 +74,7 @@ app.controller('ForumController', [
 				ForumService.fetchAllForumComments(id).then(function(d) {
 					self.forumComments = d;
 					$rootScope.selectedForumComments=self.forumComments;
-					self.getSelectedForum(id);		//calling getSelectedForum(id) method ...
+					//self.getSelectedForum(id);		//calling getSelectedForum(id) method ...
 					$location.path('/view_forum');
 				}, function(errResponse) {
 					console.error('Error while fetching ForumComments...');

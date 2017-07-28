@@ -7,6 +7,20 @@ app.factory('ForumService', ['$http', '$q', '$rootScope',
 			var BASE_URL = 'http://localhost:9999/collaboration'
 				return {
 				
+				getUserProfile : function(id) {
+					console.log("-->ForumService : calling getUserProfile() method with id : " + id);
+					return $http
+								.get(BASE_URL+'/getUser/'+ id)
+								.then(function(response) {
+									$rootScope.userProfile = response.data;
+									return response.data;
+								},
+								function(errResponse) {
+									console.error('Error while Fetching Forum.');
+									return $q.reject(errResponse);
+								});
+				},
+				
 				getSelectedForum : function(id) {
 					console.log("-->ForumService : calling getSelectedForum() method with id : " + id);
 					return $http
