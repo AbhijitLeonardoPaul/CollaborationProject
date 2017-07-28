@@ -1,0 +1,66 @@
+<!-- all-blog-view -->
+<center><h2 style="color:blue;"><u> NEW BLOGS </u></h2></center>
+<div class="blogs">
+	<div class="container">
+		<div class="blog-all-grids">
+			<div ng-show="currentUser.role=='ADMIN'">
+				<div class="col-md-4 blogs-grid" ng-repeat="blog in ctrl.blogs"
+					ng-hide="blog.status!='N'">
+					<div class="blog-all">
+						<div class="blog-all-sub frame">
+						    
+							<h3 style="color:blue;">{{blog.title}}</h3>
+							<h4 style="color:blue;">Written By : {{blog.userName}}</h4>
+<a href = "#/view_blog/" ng-click="ctrl.getBlog(blog.id)"><input	type="button" class="btn btn-info btn-more"
+									 value="BLOG DETAILS"></a>
+<input type="button" class="btn btn-info btn-more"
+									ng-click="ctrl.likeBlog(blog, blog.id)" value="Like">
+<input type="button" class="btn btn-info btn-more"
+									ng-click="ctrl.approveBlog(blog, blog.id)" value="Approve">
+<input type="button" class="btn btn-info btn-more"
+									ng-click="ctrl.rejectBlog(blog, blog.id)" value="Reject">
+						</div>
+						<div class="p-mask">
+						    <h4>
+								<a style="color:blue;"><span><i class="fa fa-rss" aria-hidden="true"></i></span>{{blog.userId}}</a>
+							</h4>
+							
+							<ul style="text-align: center;">
+								<li><a style="color:blue;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<h3>LIKES : {{blog.countLike}}</h3></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-hide="currentUser.role=='ADMIN'">
+				<div class="col-md-4 blogs-grid" ng-repeat="blog in ctrl.blogs"
+					ng-show="blog.status=='N'">
+					<div class="blog-all">
+						<div class="blog-all-sub frame">
+							<h3 style="color:blue;">{{blog.title}}</h3>
+							<h4 style="color:blue;">Written By : {{blog.userName}}</h4>
+<a href = "#/view_blog/" ng-click="ctrl.getBlog(blog.id)"><input	type="button" class="btn btn-info btn-more"
+									 value="BLOG DETAILS"></a>
+<input type="button" class="btn btn-info btn-more"
+									ng-click="ctrl.likeBlog(blog, blog.id)" value="Like">
+<input type="button" class="btn btn-info btn-more"
+									ng-click="ctrl.approveBlog(blog, blog.id)" value="Approve">
+<input type="button" class="btn btn-info btn-more"
+									ng-click="ctrl.rejectBlog(blog, blog.id)" value="Reject">							
+						</div>
+						<div class="p-mask">
+						    <h4>
+								<a style="color:blue;"><span><i class="fa fa-rss" aria-hidden="true"></i></span>{{blog.userId}}</a>
+							</h4>
+							
+							<ul style="text-align: center;">
+								<li><a style="color:blue;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<h3>LIKES : {{blog.countLike}}</h3></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>

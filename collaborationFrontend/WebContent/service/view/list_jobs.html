@@ -23,7 +23,7 @@
 							</h4>
 							
 							<ul style="text-align: center;">
-								<li><a style="color:blue;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<h4>POSTED ON : {{job.jobDate}}</h4></a></li>
+								<li><a style="color:blue;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<h4>POSTED ON : {{job.jobDate | date}}</h4></a></li>
 							</ul>
 						</div>
 					</div>
@@ -47,7 +47,7 @@
 							</h4>
 							
 							<ul style="text-align: center;">
-								<li><a style="color:blue;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<h4>POSTED ON : {{job.jobDate}}</h4></a></li>
+								<li><a style="color:blue;"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<h4>POSTED ON : {{job.jobDate || date}}</h4></a></li>
 							</ul>
 						</div>
 					</div>

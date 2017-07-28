@@ -88,10 +88,10 @@ app.controller('UserController' ,  [
 				console.log("--> UserController : calling logout method.");
 				
 				$rootScope.currentUser = {};
-				//$rootScope.isLoggedIn="true"
-				$cookieStore.remove('currentUser');
+				$localStorage.currentUser.remove('currentUser');
+			//	$cookieStore.remove('currentUser');
 				UserService.logout();
-				//$rootScope.isLoggedIn="false"
+				
 				console.log("-->UserController : User Logged out.");
 				
 				$window.location.reload();

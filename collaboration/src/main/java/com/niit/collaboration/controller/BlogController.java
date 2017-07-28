@@ -112,37 +112,54 @@ public class BlogController {
 		return new ResponseEntity<Blog>(blog, HttpStatus.OK);
 	}
 	
-	/*@PutMapping(value = "/approveBlog/{id}")				
-	public ResponseEntity<Blog> approveBlog(@RequestBody Blog blog, @PathVariable("id") int id) {
+	@PutMapping(value = "/approveBlog/{id}")				
+	public ResponseEntity<Blog> approveBlog( @PathVariable("id") int id,@RequestBody Blog blog) {
+		System.out.println("AAA");
 		log.debug("**********Starting of approveBlog() method.");
-		
-		blog.setStatus("A");	// A = Accept, R = Reject, N = New
-		blogDao.update(blog);
+		Blog blog1=blogDao.get(id);
+		//blog1.setStatus(blog.getStatus());
+		  blog1.setStatus("A");	// A = Approve, R = Reject, N = New
+		blogDao.update(blog1);
 		
 		log.debug("**********End of approveBlog() method.");
-		return new ResponseEntity<Blog> (blog, HttpStatus.OK);
+		return new ResponseEntity<Blog> (blog1, HttpStatus.OK);
 	}
+	/**
+	 * http://localhost:9500/CollaborationPlatform/rejectBlog/{id}
+	 * @param id
+	 * @param blog
+	 * @return
+	 */
 	@PutMapping(value = "/rejectBlog/{id}")				
 	public ResponseEntity<Blog> rejectBlog(@PathVariable("id") int id, @RequestBody Blog blog) {
 		log.debug("**********Starting of rejectBlog() method.");
-		
-		blog.setStatus("R");	// A = Accept, R = Reject, N = New
-		blogDao.update(blog);
+		Blog blog1=blogDao.get(id);
+		//blog1.setStatus(blog.getStatus());
+		blog1.setStatus("R");	// A = Accept, R = Reject, N = New
+		blogDao.update(blog1);
 		
 		log.debug("**********End of rejectBlog() method.");
-		return new ResponseEntity<Blog> (blog, HttpStatus.OK);
+		return new ResponseEntity<Blog> (blog1, HttpStatus.OK);
 	}
 	
+	/**
+	 * http://localhost:9500/CollaborationPlatform/likeBlog/{id}
+	 * @param id
+	 * @param blog
+	 * @return
+	 */
 	@PutMapping(value = "/likeBlog/{id}")
 	public ResponseEntity<Blog> likeBlog(@PathVariable("id") int id, @RequestBody Blog blog){
 		log.debug("**********Starting of likeBlog() method.");
-
-		int like = blog.getCountLike();
-		blog.setCountLike(like + 1);
+		Blog blog1=blogDao.get(id);
 		
-		blogDao.update(blog);
+		blog1.setCountLike(blog.getCountLike()+1);
+		
+		
+		
+		  blogDao.update(blog1);
 		
 		log.debug("**********End of likeBlog() method.");
-		return new ResponseEntity<Blog>(blog, HttpStatus.OK);
-	}*/
+		return new ResponseEntity<Blog>(blog1, HttpStatus.OK);
+	}
 }

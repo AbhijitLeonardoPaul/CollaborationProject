@@ -56,6 +56,7 @@ public class FriendController {
 		User loggedInUser = (User) session.getAttribute("loggedInUser");
 		
 		friend.setUserId(loggedInUser.getId());
+		
 		friend.setFriendId(friendId);
 		friend.setStatus("N");	// N = New, A = Accepted, R = Rejected, U = Unfriend 
 		friendDao.save(friend);

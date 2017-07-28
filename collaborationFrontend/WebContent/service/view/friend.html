@@ -1,38 +1,45 @@
-<!-- 
-<div ng-include src="'service/view/user_actions.html'"></div> -->
+
 
  <div ng-controller="FriendController as cntrl">
- <h2> Welcome to Friend Management..</h2>
-{{message}} 
+	<h2>Welcome to Friend Management..</h2>
+	{{message}}
 
+<center><h2 style="color:black;"><u> My Friends </u></h2></center>
+	<div class="friend">
+		<div class="container">
+			<div class="blog-all-grids">
 
-<div class="friend">
-	<div class="container">
-		<div class="blog-all-grids">
-			
-			<div>
-				<div class="col-md-4 blogs-grid" ng-repeat="friend in ctrl.friends" >
-				<h3>vvvvv</h3>
-					<div class="blog-all">
-						<div class="blog-all-sub frame">
-							<h3>{{friend.friendId}}</h3>
-							<p style="text-align: center;">{{friend.userId}}</p>
-							
+				<div>
+					<div class="col-md-4 blogs-grid" ng-repeat="friend in ctrl.friends">
+						
+						<div class="blog-all">
+							<div class="blog-all-sub frame">
+							<br>
+								<h3>{{friend.friendId}}</h3>
 								
+								<h6>Active : {{friend.isOnline}}</h6>
+								
+								
+
 							</div>
 						</div>
-						<div class="p-mask">
-							
-							<!-- <ul style="text-align: center;">
-								<li><a><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;{{forum.countLike}}</a></li>
-								<li><a><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;{{forum.countComment}}</a></li>
-							</ul> -->
+						
+						
+								<input type="button" class="btn btn-info btn-more"
+									ng-click="ctrl.unFriend(friend, friend.id)" value="Unfriend">
+
+							</div>
 						</div>
+
+
 					</div>
 				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
-</div>
+</div> 
 
+
+ 
+ 

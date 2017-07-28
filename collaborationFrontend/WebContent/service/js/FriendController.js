@@ -43,6 +43,21 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 					);
 			};
 			
+			self.rejectFriend = function(friend, id) {
+				console.log("--> FriendController : calling 'rejectFriend' method with id : "+id);
+				console.log("--> FriendController",self.friend);
+				FriendService
+								.rejectFriend(friend, id)
+								.then(function(d) {
+									self.friend = d;
+									alert('Friend request rejected successfully...');
+									self.getNewFriendRequests();
+								},
+								function(errResponse) {
+									console.error("Error while updating friend.");
+								});
+			};
+			
 			self.getMyFriends = function(d) {
 				console.log("--> getMyFriends");
 				var currentUser = $rootScope.currentUser
@@ -71,6 +86,35 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 					);
 			};
 			
+			
+			self.acceptFriend = function(friend, id) {
+				console.log("--> FriendController : calling 'acceptFriend' method with id : "+id);
+				console.log("--> FriendController",self.friend);
+				FriendService
+								.acceptFriend(friend, id)
+								.then(function(d) {
+									self.friend = d;
+									alert('Friend request accepted successfully...');
+									self.getNewFriendRequests();
+								},
+								function(errResponse) {
+									console.error("Error while updating friend.");
+								});
+			};
+			
+			self.unFriend = function(friend, id) {
+				console.log("--> FriendController : calling 'unFriend' method with id : "+id);
+				console.log("--> FriendController",self.friend);
+				FriendService
+								.unFriend(friend, id)
+								.then(function(d) {
+									self.friend = d;
+									self.getMyFriends();
+								},
+								function(errResponse) {
+									console.error("Error while updating friend.");
+								});
+			};			
 			self.fetchAllUsers = function(d) {
 				console.log("--> fetchAllUsers");
 				UserService.fetchAllUsers().then(

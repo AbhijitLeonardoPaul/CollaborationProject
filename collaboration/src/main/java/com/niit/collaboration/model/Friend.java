@@ -19,6 +19,9 @@ public class Friend extends BaseDomain implements Serializable {
 	private String friendId;
 	private String status;
 	private String isOnline;
+	
+	
+	
 	public int getId() {
 		return id;
 	}

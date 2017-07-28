@@ -10,7 +10,7 @@ app.factory('ForumService', ['$http', '$q', '$rootScope',
 				getSelectedForum : function(id) {
 					console.log("-->ForumService : calling getSelectedForum() method with id : " + id);
 					return $http
-								.get(BASE_URL+'/forum/'+ id)
+								.get(BASE_URL+'/getForum/'+ id)
 								.then(function(response) {
 									$rootScope.selectedForum = response.data;
 									return response.data;

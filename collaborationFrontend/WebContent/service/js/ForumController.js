@@ -36,9 +36,9 @@ app.controller('ForumController', [
 				console.log("-->ForumController : calling getSelectedForum method with id : " + id);
 				ForumService.getSelectedForum(id).then(function(d) {
 					self.forum = d;
-					
+					self.fetchAllForumComments(self.forum.id);
 					console.log("test  "+d);
-					//$location.path('/view_forum');
+					$location.path('/view_forum');
 				}, function(errResponse) {
 					console.error('Error while fetching Forum...');
 				});
@@ -59,7 +59,7 @@ app.controller('ForumController', [
 				console.log("-->ForumController : calling fetchAllForumComments method with id : "+ id);
 				ForumService.fetchAllForumComments(id).then(function(d) {
 					self.forumComments = d;
-					
+					$rootScope.selectedForumComments=self.forumComments;
 					self.getSelectedForum(id);		//calling getSelectedForum(id) method ...
 					$location.path('/view_forum');
 				}, function(errResponse) {
@@ -82,6 +82,7 @@ app.controller('ForumController', [
 				console.log("-->ForumController : calling 'createForumComment' method.", self.forum);
 				forumComment.forumId = id;
 				console.log("-->ForumController ForumId :" +forumComment.forumId);
+				forumComment.userId=$rootScope.currentUser.id;
 				ForumService
 							.createForumComment(forumComment)
 							.then(function(d) {

@@ -28,7 +28,12 @@ app.config(function($routeProvider) {
     	
   })
   
+  
+  .when('/list_newblogs/', {
+	    templateUrl : 'service/view/list_newblogs.html',
+	    controller : 'BlogController as ctrl'
     	
+  })
   .when('/forum', {
     		    templateUrl : 'service/view/forum.html',
     		    controller : 'ForumController as ctrl'
@@ -48,6 +53,8 @@ app.config(function($routeProvider) {
     
    
   })
+  
+  
   
   
   .when('/friend', {

@@ -6,11 +6,11 @@
 				<div class="col-md-4 blogs-grid" ng-repeat="forum in ctrl.forums" >
 					<div class="blog-all">
 						<div class="blog-all-sub frame">
-							<h3>{{forum.id}}</h3>
+							<h3>{{forum.description}}</h3>
 							<p style="text-align: center;">{{forum.userId}}</p>
 							<div class="more">
 								<input type="button" class="btn btn-info btn-more"
-									ng-click="ctrl.fetchAllForumComments(forum.id)" value="Know More..">
+									ng-click="ctrl.getSelectedForum(forum.id)" value="Know More..">
 							</div>
 						</div>
 						<div class="p-mask">

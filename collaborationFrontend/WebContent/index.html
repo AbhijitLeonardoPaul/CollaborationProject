@@ -36,6 +36,8 @@
 						<li ng-hide="currentUser==''">
 							<a class="dropdown-toggle a-hover" data-toggle="dropdown">Blog<span class="caret"></span></a>
 							<ul class="dropdown-menu">
+							
+							<li ng-show="currentUser.role=='ADMIN'"><a href="#/list_newblogs"><span>Approve Blogs</span></a></li>
 								<li><a href="#/blog"><span>Add new Blog</span></a></li>
 								<li><a href="#/blogs"><span>Blog List</span></a></li>
 								
@@ -84,7 +86,8 @@
 				
 								
 								  <li ng-show="currentUser.role!='ADMIN' && currentUser.role!='ROLE_USER'"><a href="#/login" ng-show="!$curen.isUserLoggedIn">sign in</a></li> 
-								 <li ng-show="currentUser.role=='ADMIN' || currentUser.role=='ROLE_USER'"><a href="#/Logout"><span>Logout</span></a></li>
+								 <li ng-show="currentUser.role=='ADMIN' || currentUser.role=='ROLE_USER'"><a ng-click="ctrl.logout()">Logout
+									 </a></li>
 				                  
 				                   </ul>
 				                   
@@ -103,11 +106,11 @@
 	
 
 	<div class="container">
-		<h1>
+		<!-- <h1>
 			<center>Collaboration</center>
 
 
-		</h1>
+		</h1> -->
 	</div> 
 
 
