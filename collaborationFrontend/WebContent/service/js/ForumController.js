@@ -83,6 +83,7 @@ app.controller('ForumController', [
 
 			self.createForum = function(forum) {
 				console.log("-->ForumController : calling createForum method.");
+				forum.userId=$rootScope.currentUser.id;
 				ForumService.createForum(forum).then(function(d) {
 					self.forum = d;
 					alert('Forum Created Successfully...')

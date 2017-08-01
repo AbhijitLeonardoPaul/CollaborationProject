@@ -63,6 +63,8 @@ app.config(function($routeProvider) {
    
   })
   
+ 
+  
   .when('/view_profile', {
     templateUrl : 'service/view/view_profile.html',
     controller : 'ForumController as ctrl'

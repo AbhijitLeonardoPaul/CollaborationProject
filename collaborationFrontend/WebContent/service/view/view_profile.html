@@ -5,11 +5,18 @@
 		<div class="col-md-8 col-md-offset-2 profile-base">
 			<fieldset>
 				<legend>
-					<span>My Profile</span>
+					<span>Profile</span>
 					<!-- <a href="#/edit-profile" class="btn btn-info btn-edit">
 						<span>Edit Profile</span> 
 					</a> -->
 				</legend>
+				<div class="col-md-8">
+								<label class="floatleft"><input type="button" class="btn btn-info btn-more"
+									ng-click="ctrl.sendFriendRequest(user.id)" value="Send Friend Request"> </label>
+				
+						  </div>
+						
+						
 				<div>
 					<form class="col-md-8 form-profile">
 						<div class="one-profile">
@@ -60,7 +67,17 @@
 								<label class="floatleft"> : {{userProfile.role}}</label>
 							</div>
 						</div>
-					</form>
+						<!-- <div class="one-profile">
+							<div class="col-md-4">
+								<a class="floatright" ng-click="ctrl.sendFriendRequest(user.id)" value="Send Friend Request">Add as Friend</a>
+							</div>
+						
+						</div> -->
+						</form>
+						
+						
+	
+					
 					<div class="col-md-4">
 						<img
 							src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"

@@ -28,9 +28,7 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 			};
 			self.users = [];
 			
-			self.sendFriendRequest = sendFriendRequest
-			
-			function sendFriendRequest(friendId) {
+			self.sendFriendRequest = function sendFriendRequest(friendId) {
 				console.log("--> sendFriendRequest : "+friendId);
 				FriendService.sendFriendRequest(friendId).then(
 						function(d) {
@@ -42,6 +40,8 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 						}
 					);
 			};
+			
+			
 			
 			self.rejectFriend = function(friend, id) {
 				console.log("--> FriendController : calling 'rejectFriend' method with id : "+id);

@@ -70,7 +70,8 @@ public class FriendController {
 	 * @param session
 	 * @return
 	 */
-	@PutMapping(value = "/unFriend/{friendId}")			
+	 //http://localhost:9999/collaboration/user/unFriend/3
+	@PutMapping(value = "user/unFriend/{friendId}")			
 	public ResponseEntity<Friend> unFriend(@PathVariable("friendId") String friendId, HttpSession session) {
 		log.debug("**********Starting of unFriend() method");
 		User loggedInUser = (User) session.getAttribute("loggedInUser");

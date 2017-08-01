@@ -10,7 +10,7 @@ app
 						function($http, $q, $rootScope) {
 							console.log("FriendService...");
 
-							var BASE_URL = 'http://localhost:9999/collaboration/'
+							var BASE_URL = 'http://localhost:9999/collaboration'
 							return {
 								getMyFriends : function() {
 									return $http
