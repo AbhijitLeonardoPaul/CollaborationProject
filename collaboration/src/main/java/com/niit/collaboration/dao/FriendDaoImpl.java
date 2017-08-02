@@ -99,7 +99,7 @@ public class FriendDaoImpl implements FriendDao {
 	@Transactional
 	public List<Friend> getMyFriends(String userId) {
 		log.debug("**********Starting of getMyFriends() method.");
-		String hql = "from Friend where userId = '" + userId + "' and status = 'Y'";
+		String hql = "from Friend where userId = '" + userId + "' and status = 'A'";
 		log.debug("hql : " + hql);
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		

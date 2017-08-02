@@ -28,7 +28,9 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 			};
 			self.users = [];
 			
-			self.sendFriendRequest = function sendFriendRequest(friendId) {
+		
+			
+			/*self.sendFriendRequest = function sendFriendRequest(friendId) {
 				console.log("--> sendFriendRequest : "+friendId);
 				FriendService.sendFriendRequest(friendId).then(
 						function(d) {
@@ -40,7 +42,7 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 						}
 					);
 			};
-			
+			*/
 			
 			
 			self.rejectFriend = function(friend, id) {
@@ -58,7 +60,7 @@ app.controller('FriendController', [ 'FriendService', 'UserService', '$scope',
 								});
 			};
 			
-			self.getMyFriends = function(d) {
+			self.getMyFriends = function() {
 				console.log("--> getMyFriends");
 				var currentUser = $rootScope.currentUser
 				if (typeof currentUser == 'undefined') {

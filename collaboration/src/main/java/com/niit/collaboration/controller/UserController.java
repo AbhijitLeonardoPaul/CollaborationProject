@@ -31,7 +31,7 @@ Logger log = Logger.getLogger(UserController.class);
 	
 	
 	@GetMapping(value = "/users")
-	public ResponseEntity<List<User>> listBlogs() {
+	public ResponseEntity<List<User>> listUsers() {
 		log.debug("**********Starting of listJobs() method.");
 		List<User> user = userDao.list();
 		if(user.isEmpty()) {

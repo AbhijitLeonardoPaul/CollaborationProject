@@ -21,6 +21,23 @@ app.factory('ForumService', ['$http', '$q', '$rootScope',
 								});
 				},
 				
+				sendFriendRequest : function(friendId) {
+					return $http
+							.post(
+									BASE_URL + '/addFriend/'
+											+ friendId)
+							.then(
+									function(response) {
+										return response.data;
+									},
+									function(errResponse) {
+										console
+												.error("-->updateFriendRequest : Error while creating friend.")
+										return $q
+												.reject(errResponse);
+									});
+				},
+				
 				getSelectedForum : function(id) {
 					console.log("-->ForumService : calling getSelectedForum() method with id : " + id);
 					return $http

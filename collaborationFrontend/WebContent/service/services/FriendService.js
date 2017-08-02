@@ -26,6 +26,8 @@ app
 																.reject(errResponse);
 													});
 								},
+								
+								
 								unFriend : function(friend, id) {
 									console
 											.log("--> FriendService : calling 'unFriend' method with id : "
@@ -44,7 +46,7 @@ app
 																.error("-->FriendService : Error while unFriending existing friend.")
 													});
 								},
-								sendFriendRequest : function(friendId) {
+								/*sendFriendRequest : function(friendId) {
 									return $http
 											.post(
 													BASE_URL + '/addFriend/'
@@ -59,7 +61,7 @@ app
 														return $q
 																.reject(errResponse);
 													});
-								},
+								},*/
 								
 								rejectFriend : function(friend, id) {
 									console.log("--> FriendService : calling 'rejectFriend' method with id : "+id);

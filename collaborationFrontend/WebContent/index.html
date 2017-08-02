@@ -2,6 +2,7 @@
 <!doctype html>
 <html ng-app="myApp">
 <head>
+<link rel="icon" type="image/png" href="service/resource/logo.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -71,6 +72,7 @@
 				<li><a href="#/friend">My Friends</a></li>
 
 				<li><a href="#/myprofile">My Profile</a></li>
+				<li ng-show="currentUser.role=='ADMIN'"><a href="#/users"><span>All Users</span></a></li>
 				 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

@@ -46,6 +46,20 @@ app.controller('ForumController', [
 				});
 			};
 			
+			self.sendFriendRequest = function sendFriendRequest(friendId) {
+				console.log("--> sendFriendRequest : "+friendId);
+				ForumService.sendFriendRequest(friendId).then(
+						function(d) {
+							self.friend = d;
+							alert("Friend request sent...")
+						},
+						function(errResponse) {
+							console.error("Error while fetching friends.");
+						}
+					);
+			};
+			
+			
 			self.getSelectedForum = function(id) {
 				console.log("-->ForumController : calling getSelectedForum method with id : " + id);
 				ForumService.getSelectedForum(id).then(function(d) {

@@ -55,11 +55,23 @@ public class FriendController {
 		Friend friend = new Friend();
 		User loggedInUser = (User) session.getAttribute("loggedInUser");
 		
+		Friend f=friendDao.get(loggedInUser.getId(), friendId);
+		
+		System.out.println(loggedInUser.getId()+"=======++++   "+friendId);
+		if(f==null)
+		{
 		friend.setUserId(loggedInUser.getId());
 		
 		friend.setFriendId(friendId);
 		friend.setStatus("N");	// N = New, A = Accepted, R = Rejected, U = Unfriend 
 		friendDao.save(friend);
+		}
+		
+		else
+		{
+			f.setStatus("N");
+			friendDao.update(f);
+		}
 		log.debug("**********End of sendFriendRequest() method");
 		return new ResponseEntity<Friend> (friend, HttpStatus.OK);
 	}

@@ -83,7 +83,11 @@ app.config(function($routeProvider) {
    
   })
   
-  
+  .when('/users', {
+    templateUrl : 'service/view/list_users.html',
+    controller : 'UserController as ctrl'
+   
+  })
 
 
    
